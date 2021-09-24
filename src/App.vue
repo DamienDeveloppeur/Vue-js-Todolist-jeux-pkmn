@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Form @addTask="onAddtask"/>
-    <!-- v-bind:items="items"  -->
+    <Form v-bind:items="items" />
     <List v-bind:items="items" />
   </div>
 </template>
@@ -17,15 +16,10 @@ export default {
   data : function() {
     return {
         items: [
-            {element: 'Vuejs', done: false, id:1},
-            {element: 'React', done: true, id:2}
+            {element: 'Vuejs', done: false},
+            {element: 'React', done: true}
         ],
       }
-  },
-  methods : {
-    onAddTask : function (task) {
-      this.items.push(task);
-    }
   },
   components: {
     Form,

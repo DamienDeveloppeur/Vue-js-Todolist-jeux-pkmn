@@ -1,6 +1,6 @@
 <template>
    <ul id="List">
-        <li v-for="(item, i) in items" :key="item.id">
+        <li v-for="(item, i) in items" :key="i">
           {{ item.element }} 
           <span @click="del_func(i)">Delete</span>
           <span v-bind:style="{background : (item.done ? 'green' : 'red')}" @click="acomplished(i)">Noter comme acompli</span>

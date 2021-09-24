@@ -1,5 +1,5 @@
 <template>
-    <form id="Form" @submit="onSubmitForm">
+    <form id="Form" @submit="checkForm">
         <p>
             <label for="name">Element à ajouter</label>
             <input v-model="name" type="text">
@@ -20,14 +20,6 @@ export default {
     },
     props : {items : Array},
     methods:{
-        onSubmitForm: function() {
-            const task = {
-                title: this.title,
-                content: this.content
-            };
-            this.$emit('addTask',task);
-        },
-        
       checkForm: function (e) {
         console.log(this.items)
         //console.log(element_todo.items.length)
@@ -38,6 +30,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
