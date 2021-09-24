@@ -15,11 +15,11 @@ export default {
   name: 'App',
   data : function() {
     return {
-        items: [
-            {element: 'Vuejs', done: false},
-            {element: 'React', done: true}
-        ],
-      }
+      items: [
+          {element: 'Vuejs', done: false},
+          {element: 'React', done: true}
+      ],
+    }
   },
   components: {
     Form,

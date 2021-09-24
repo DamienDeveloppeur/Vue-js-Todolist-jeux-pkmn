@@ -1,5 +1,5 @@
 <template>
-   <ul id="List">
+    <ul id="List">
         <li v-for="(item, i) in items" :key="i">
           {{ item.element }} 
           <span @click="del_func(i)">Delete</span>
