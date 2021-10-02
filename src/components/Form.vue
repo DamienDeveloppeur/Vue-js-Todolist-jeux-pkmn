@@ -22,10 +22,11 @@ export default {
         name: null,
       }
     },
-    props : {data : Array},
+    props : {data : Object,
+    team : Array},
     methods:{
       checkForm: function (e) {
-        console.log(this.name)
+        // console.log(this.data)
         this.data.name_dresseur = this.name;
 
         e.preventDefault();

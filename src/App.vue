@@ -1,34 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo-pkmn.jpg">
-     <!-- v-if="!this.data.name_dresseur" -->
-    <Form v-bind:items="items" />
-    <List v-bind:items="items" />
+    <img alt="Vue logo" src="./assets/prof-chen.png">
+     <!--  -->
+    <Form v-bind:data="data" v-if="!this.data.name_dresseur"/>
+    <Starter v-bind:data="data" :pkmn="pkmn" :team="team" v-if="!this.data.starter_name&&this.data.name_dresseur"></Starter>
+    <List v-bind:data="data" :team="team" />
   </div>
 </template>
 
 <script>
 import Form from './components/Form.vue'
 import List from './components/List.vue'
+import Starter from './components/Starter.vue'
 
 export default {
   name: 'App',
   data : function() {
     return {
-      items: [
-          {element: 'Vuejs', done: false},
-          {element: 'React', done: true}
+      pkmn: [
+          {name: 'carapuce', id: 1, pv :50,atk : 5, def : 6},
+          {name: 'bulbizarre', id: 2, pv:55, atk:4, def:7},
+          {name: 'salaméche', id: 3, pv:45, atk : 6, def:5},
       ],
       data : {
         name_dresseur : "",
-        name_pkmn : ""
-      }
-      ,
+        name_pkmn : "",
+        starter_name : "",
+      },
+      team : [
+
+      ],
+      config : {
+        
+      },
+      
     }
   },
   components: {
     Form,
-    List
+    List,
+    Starter
   },
 }
 // console.log(this.items);

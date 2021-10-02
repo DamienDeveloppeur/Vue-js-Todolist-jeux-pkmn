@@ -1,15 +1,20 @@
 <template>
-    <ul id="List">
-        <li>
-          {{ data.name_pkmn }} 
-        </li>
-    </ul>
+    <div id="List">
+       <span>Votre nom : {{ data.name_dresseur }}</span><br>
+        <div>Votre équipe</div>
+        <ul>
+            <li v-for="(pokemon, i) in team" :key="i">
+                nom : {{pokemon.name}}
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'List', 
-    props : {data : Array},
+    props : {data : Object,
+    team : Array},
     methods : {
         del_func: function (index) {
             this.items.splice(index, 1);
