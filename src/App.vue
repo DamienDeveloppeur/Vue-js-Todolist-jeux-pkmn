@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/logo-pkmn.jpg">
+     <!-- v-if="!this.data.name_dresseur" -->
     <Form v-bind:items="items" />
     <List v-bind:items="items" />
   </div>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
 import Form from './components/Form.vue'
 import List from './components/List.vue'
 
@@ -19,13 +19,19 @@ export default {
           {element: 'Vuejs', done: false},
           {element: 'React', done: true}
       ],
+      data : {
+        name_dresseur : "",
+        name_pkmn : ""
+      }
+      ,
     }
   },
   components: {
     Form,
     List
-  }
+  },
 }
+// console.log(this.items);
 </script>
 
 <style>

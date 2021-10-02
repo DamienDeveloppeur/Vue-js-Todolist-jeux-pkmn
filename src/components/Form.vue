@@ -1,13 +1,17 @@
 <template>
-    <form id="Form" @submit="checkForm">
+ <div id="form">
+  <h1>Bienvenue dans le monde des pokémons !</h1>
+  <p></p>
+    <form @submit="checkForm">
         <p>
-            <label for="name">Element à ajouter</label>
+            <label for="name">Quel est ton prénom ?</label>
             <input v-model="name" type="text">
         </p>
         <p>
             <input type="submit" value="Submit">
         </p>
     </form>
+ </div>
 </template>
 
 <script>
@@ -18,12 +22,12 @@ export default {
         name: null,
       }
     },
-    props : {items : Array},
+    props : {data : Array},
     methods:{
       checkForm: function (e) {
-        console.log(this.items)
-        //console.log(element_todo.items.length)
-        this.items.push({element: this.name, done: false});
+        console.log(this.name)
+        this.data.name_dresseur = this.name;
+
         e.preventDefault();
       }
     }

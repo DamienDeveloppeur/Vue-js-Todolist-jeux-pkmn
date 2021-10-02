@@ -1,9 +1,7 @@
 <template>
     <ul id="List">
-        <li v-for="(item, i) in items" :key="i">
-          {{ item.element }} 
-          <span @click="del_func(i)">Delete</span>
-          <span v-bind:style="{background : (item.done ? 'green' : 'red')}" @click="acomplished(i)">Noter comme acompli</span>
+        <li>
+          {{ data.name_pkmn }} 
         </li>
     </ul>
 </template>
@@ -11,7 +9,7 @@
 <script>
 export default {
     name: 'List', 
-    props : {items : Array},
+    props : {data : Array},
     methods : {
         del_func: function (index) {
             this.items.splice(index, 1);
