@@ -1,19 +1,17 @@
 <template>
  <div id="form">
+  <img alt="Vue logo" src="../assets/prof-chen.png">
   <h1>Maintenant, choisis un starter</h1>
   <p></p>
     <form id="starter">
         <p>
-            <label for="name">Carapuce</label>
-            <img key="1" src="../assets/carapuce.png" alt="" v-on:click="chooseStarter(this.pkmn[0])">
+            <img key="1" src="../assets/carapuce.png" alt="" v-on:click="chooseStarter(pkmn[0])">
         </p>
         <p>
-            <label for="name">Salaméche</label>
-            <img src="../assets/salameche.png" alt="" v-on:click="chooseStarter(this.pkmn[1])">
+            <img src="../assets/salameche.png" alt="" v-on:click="chooseStarter(pkmn[1])">
         </p>
         <p>
-            <label for="name">Bulbizarre</label>
-            <img src="../assets/bulbizarre.png" alt="" v-on:click="chooseStarter(this.pkmn[2])">
+            <img src="../assets/bulbizarre.png" alt="" v-on:click="chooseStarter(pkmn[2])">
         </p>
 
     </form>
@@ -32,11 +30,9 @@ export default {
             pkmn : Array,
             team : Array},
     methods:{
-      chooseStarter (pokemon) {
-        console.log(this.pkmn[0].name)
-        this.team.push(pokemon)
-       
-
+      chooseStarter (p) {
+        this.team.push(p)
+        this.data.starter_name = p.name;
       }
     }
 }

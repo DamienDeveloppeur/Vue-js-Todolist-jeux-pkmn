@@ -1,8 +1,9 @@
 <template>
  <div id="form">
+   <img alt="Vue logo" src="../assets/prof-chen.png">
   <h1>Bienvenue dans le monde des pokémons !</h1>
   <p></p>
-    <form @submit="checkForm">
+    <form id="form_name" @submit="checkForm">
         <p>
             <label for="name">Quel est ton prénom ?</label>
             <input v-model="name" type="text">
@@ -22,8 +23,7 @@ export default {
         name: null,
       }
     },
-    props : {data : Object,
-    team : Array},
+    props : {data : Object},
     methods:{
       checkForm: function (e) {
         // console.log(this.data)
@@ -36,5 +36,9 @@ export default {
 </script>
 
 <style scoped>
-
+  #form_name p{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
