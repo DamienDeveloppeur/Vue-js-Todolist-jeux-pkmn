@@ -17,7 +17,8 @@
                     </div>
                     <div class="test">
                         <li v-for="(attack, i) in pokemon.ability" :key="i">
-                           <div v-on:click="this.attack(attack.name)">{{attack.name}}</div> 
+                           <div @click="atk(attack)">{{attack.name}}</div> 
+                           
                         </li>
                     </div>
                 </div>
@@ -34,11 +35,19 @@
 export default {
     name: 'List', 
     props : {data : Object,
-    team : Array},
+    team : Array,
+    pkmn : Array},
     methods : {
-       
+        displayStat: function () {
+            console.log(this.pkmn[0].ability)
+        },
+         atk : function (a) {
+          this.$emit("attack",a);
+        },
     },
-
+    beforeMount(){
+        this.displayStat();
+    },
 }
 </script>
 

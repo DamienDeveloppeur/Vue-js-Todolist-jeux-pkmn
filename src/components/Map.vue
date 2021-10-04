@@ -1,6 +1,6 @@
 <template>
     <div id="map">
-        <div class="pad">
+        <div class="pad" v-if="!data.foePkmn.status">
             <!-- <div class="arrow top" ></div> -->
             <button v-on:click="moove(true)">Aller en haut</button>
             <button v-on:click="moove(false)">Aller en bas</button>
@@ -14,8 +14,10 @@
 <script>
 export default {
     name: 'Map', 
-    props : {data : Object,
-    team : Array},
+    props : {
+        data : Object,
+        team : Array
+    },
     methods : {
         moove (moove) {
             // this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1 ? console.log("yes") : console.log("no");
