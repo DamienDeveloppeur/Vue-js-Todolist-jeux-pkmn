@@ -5,7 +5,7 @@
   <h4>Vous pouvez soigner vos pokémon ou acheter des objets en boutiques</h4>
 
 
-  <p></p>
+  <button>Soigner vos pokémons au centre</button>
  </div>
 </template>
 p
