@@ -5,8 +5,9 @@
         <ul>
             <li class="thumbnail-pkmn" v-for="(pokemon, i) in team" :key="i">
                 <div class="entry">
-                    <div class="test">
-                        <span>Nom : </span> <span>{{pokemon.name}}</span>
+                    <div class="column">
+                        <div><span>Nom : </span> <span>{{pokemon.name}}</span></div> 
+                        <div><span>Niveaux : </span> <span>{{pokemon.level}}</span></div>
                     </div>
                     <div class="test">
                         <div class="barre_exp">

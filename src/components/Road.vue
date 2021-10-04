@@ -1,13 +1,14 @@
 <template>
- <div id="city">
+ <div id="road">
    <img alt="Vue logo" src="../assets/road.png">
   <h1>Route</h1>
   <h2>Un pokémon sauvage vous attaque !</h2>
   <p>{{this.data.foePkmn}}</p>
     <div class="thumbnail-pkmn">
         <div class="entry">
-            <div class="test">
-                <span>Nom : </span> <span>{{this.data.foePkmn.name}}</span>
+            <div class="column">
+                <div><span>Nom : </span> <span>{{this.data.foePkmn.name}}</span></div> 
+                <div><span>Niveaux : </span> <span>{{this.data.foePkmn.level}}</span></div>  
             </div>
             <div class="test">
                 <div class="barre_exp">
@@ -22,6 +23,7 @@
         </div>
     </div>
     <h3>Vous devez vaincre le pkmn sauvage pour pouvoir continuer</h3>
+  <h3>{{data.turn ? "Votre tour" : "Tour de du pokémon sauvage"}}</h3> 
  </div>
 </template>
 
@@ -42,6 +44,7 @@ export default {
             this.data.foePkmn = {
                                     name: 'salaméche', 
                                     id: 3, 
+                                    level : 1,
                                     ability : [ {name: "charge", damage : 5}], 
                                     base_stat : {pv : 50, atk : 5, def:6}, 
                                     current_stat : {pv : 50, atk : 5, def:6},

@@ -2,10 +2,13 @@
  <div id="city">
    <img alt="Vue logo" src="../assets/city.png">
   <h1>Ville</h1>
+  <h4>Vous pouvez soigner vos pokémon ou acheter des objets en boutiques</h4>
+
+
   <p></p>
  </div>
 </template>
-
+p
 <script>
 export default {
     name: "City",

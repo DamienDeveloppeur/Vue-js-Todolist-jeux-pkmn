@@ -27,6 +27,7 @@ export default {
             name: 'carapuce', 
             id: 1,
             level : 1,
+            exp : 0,
             ability : [ {name: "charge", damage : 5}],
             base_stat : {pv : 50, atk : 5, def:6},
             current_stat : {pv : 50, atk : 5, def:6},
@@ -36,6 +37,7 @@ export default {
             name: 'salaméche', 
             id: 3, 
             level : 1,
+            exp : 0,
             ability : [ {name: "charge", damage : 5}], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6},
@@ -45,6 +47,7 @@ export default {
             name: 'bulbizarre', 
             id: 2, 
             level : 1,
+            exp : 0,
             ability : [ {name: "charge", damage : 5}], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6},
@@ -77,16 +80,14 @@ export default {
   methods : {
     attacks : function (a) {
       if(this.data.turn) {
-        let attacker = this.team[0], defender = this.data.foePkmn;
-        console.log(attacker, defender)
+        this.data.foePkmn.current_stat.pv -= a.damage;
         this.data.turn = false;
       } else {
-        let attacker = this.data.foePkmn, defender = this.team[0];
-        console.log(attacker, defender)
+        this.team[0].current_stat.pv -= this.data.foePkmn.ability[0].damage;
         this.data.turn = true;
       }
       // faire baisser les pv du defender en fonction de l'attaque de l'attacker 
-      this.data.foePkmn.current_stat.pv -= a.damage;
+      
       if(this.data.foePkmn.current_stat.pv <= 0) this.data.foePkmn.status = false;
     }
   },
