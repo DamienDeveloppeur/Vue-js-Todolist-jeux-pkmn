@@ -26,6 +26,7 @@ export default {
           {
             name: 'carapuce', 
             id: 1,
+            level : 1,
             ability : [ {name: "charge", damage : 5}],
             base_stat : {pv : 50, atk : 5, def:6},
             current_stat : {pv : 50, atk : 5, def:6},
@@ -34,6 +35,7 @@ export default {
           {
             name: 'salaméche', 
             id: 3, 
+            level : 1,
             ability : [ {name: "charge", damage : 5}], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6},
@@ -42,6 +44,7 @@ export default {
           {
             name: 'bulbizarre', 
             id: 2, 
+            level : 1,
             ability : [ {name: "charge", damage : 5}], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6},

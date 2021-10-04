@@ -16,9 +16,12 @@
                 </div>
                 <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
             </div>
+            <div class="capComba">
+
+            </div>
         </div>
     </div>
-    <h3>Dans cette version, vous ne pouvez fuir (bah oui gros lache)</h3>
+    <h3>Vous devez vaincre le pkmn sauvage pour pouvoir continuer</h3>
  </div>
 </template>
 
@@ -54,5 +57,7 @@ export default {
 </script>
 
 <style scoped>
-
+.capComba {
+    
+}
 </style>
