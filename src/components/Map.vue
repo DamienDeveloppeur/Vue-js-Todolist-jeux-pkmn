@@ -1,6 +1,5 @@
 <template>
     <div id="map">
-          <img alt="Vue logo" src="../assets/red.png">
         <div class="pad">
             <!-- <div class="arrow top" ></div> -->
             <button v-on:click="moove(true)">Aller en haut</button>
@@ -29,7 +28,7 @@ export default {
 
 <style>
 #map {
-    min-height: 500px;
+    /* min-height: 500px; */
 }
 .arrow:before {
     /* position: relative; */

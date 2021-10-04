@@ -9,7 +9,16 @@
                         <span>Nom : </span> <span>{{pokemon.name}}</span>
                     </div>
                     <div class="test">
-                        <span>Pv : </span> <span>{{pokemon.pv}}</span>
+                        <div class="barre_exp">
+                            <div class="stat_hp" :style="{ width: pokemon.current_stat.pv  * 200 / pokemon.base_stat.pv + 'px' }">
+                            </div>
+                        </div>
+                        <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
+                    </div>
+                    <div class="test">
+                        <li v-for="(attack, i) in pokemon.ability" :key="i">
+                           <div v-on:click="this.attack(attack.name)">{{attack.name}}</div> 
+                        </li>
                     </div>
                 </div>
             </li>
@@ -27,17 +36,17 @@ export default {
     props : {data : Object,
     team : Array},
     methods : {
-        del_func: function (index) {
-            this.items.splice(index, 1);
-        },
-        acomplished: function (index) {
-            this.items[index].done = true;
-        }
-    }
+       
+    },
+
 }
 </script>
 
 <style>
+.test {
+    display: flex;
+    justify-content: center;
+}
 .thumbnail-pkmn {
     display:flex;
     border:1px solid black;
@@ -47,5 +56,21 @@ export default {
     width: 100%; 
     /* display:flex;
     justify-content: space-evenly; */
+}
+.mini_barre_exp {
+    width:100px;
+    height:24px;
+    border :1px solid black;
+}
+.barre_exp {
+    animation: 3s linear 1s slidein;
+    width:200px;
+    height:24px;
+    border :1px solid black;
+}
+.stat_hp {
+    height:100%;
+    /* width: 0px; */
+    background-color:red;
 }
 </style>
