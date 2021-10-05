@@ -98,6 +98,10 @@ export default {
 </script>
 
 <style>
+#List {
+    border: 1px solid black;
+    border-radius:100px;
+}
 .stat {
     display: flex;
     flex-direction: column;

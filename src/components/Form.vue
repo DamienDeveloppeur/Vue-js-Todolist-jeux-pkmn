@@ -1,9 +1,14 @@
 <template>
  <div id="form">
    <img alt="Vue logo" src="../assets/prof-chen.png">
-  <h1>Bienvenue dans le monde des pokémons !</h1>
-  <p>Dans cete run, vous aurez une stat de faim qui baissera au fur et à mesure de votre aventure</p>
-  <p>Vous devriez combatre pour gagner des pokédollar, pour pouvoir acheter de la nouriture</p>
+  <h1>Bien le bonjour !</h1>
+  <h1>Bienvenue dans le monde magique des pokémons !</h1>
+  <h2>Mon nom est CHEN ! Les gens souvent m'appellent le PROF POKEMON</h2>
+  <h2>Ce monde est peuplé de créatures du nom de pokémon!</h2>
+  <h2>Pour certains, les pokmémons sont des animaux domestiques, pour d'autres, ils sont un moyen de combattre</h2>
+  <h2>Pour ma part ...</h2>
+  <h2>L'étude des pokémon est ma profession</h2>
+  <h1>Tout d'abord, quel est ton nom ?</h1>
   <p></p>
     <form id="form_name" @submit="checkForm">
         <p>

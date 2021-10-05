@@ -3,8 +3,8 @@
   <img :src="require(`@/assets/${this.data.localisation[this.data.actual_localisation].name}.png`)">
   <h1>Ville</h1>
   <h4>Vous pouvez soigner vos pokémon ou acheter des objets en boutiques</h4>
-  <button @click="fullHeal">Soigner vos pokémons au centre</button>
-  <button @click="visitShop">{{ shop ? "Sortir de la boutique" : "Enrer dans la boutique"}}</button>
+  <button class="btn btn-1" @click="fullHeal">Soigner vos pokémons au centre</button>
+  <button class="btn btn-2" @click="visitShop">{{ shop ? "Sortir de la boutique" : "Enrer dans la boutique"}}</button>
     <div v-if="shop" id="shop">
       <div class="article_traier">
         <div v-for="(p,i) in data.product_shop" :key="i">
@@ -54,5 +54,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>

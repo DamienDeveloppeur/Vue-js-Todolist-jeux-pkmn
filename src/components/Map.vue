@@ -2,8 +2,8 @@
     <div id="map">
         <div class="pad" v-if="!data.foePkmn.status">
             <!-- <div class="arrow top" ></div> -->
-            <button v-on:click="moove(true)">Aller en haut</button>
-            <button v-on:click="moove(false)">Aller en bas</button>
+            <button class="btn btn-3" v-on:click="moove(true)">Aller en haut</button>
+            <button class="btn btn-3" v-on:click="moove(false)">Aller en bas</button>
             <!-- <div class="arrow right"></div> -->
             <!-- <div class="arrow bottom" v-on:click="moove(false)"></div> -->
             <!-- <div class="arrow left"></div> -->
