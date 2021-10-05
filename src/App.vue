@@ -65,10 +65,14 @@ export default {
         trainer : {
           name_trainer : "",
           stat_hungry : 100,
-          bag : {},
+          bag : [],
           pokedollar : 50,
         },
-        game_over : false
+        product_shop : [
+          {name : "food", price : 25},
+          {name: "pokeball", price : 20}
+        ],
+        game_over : false,
         
       },
       team : [

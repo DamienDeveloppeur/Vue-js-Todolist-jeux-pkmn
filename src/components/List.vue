@@ -35,6 +35,10 @@
             <div class="nom">
                 <div>Votre nom : {{data.trainer.name_trainer }}</div><br>
             </div>
+            <div class="bag">
+                <div>Montant pokedollar : {{this.data.trainer.pokedollar}}</div>
+                <button>Voir le contenu du sac</button>
+            </div>
             <div class="hungry">
                     <div class="barre_exp">
                         <div class="stat_hungry" :style="{ width: data.trainer.stat_hungry * 2+ 'px' }">
@@ -42,6 +46,7 @@
                         </div>
                     </div>
             </div>
+        
         </div>
 
 
