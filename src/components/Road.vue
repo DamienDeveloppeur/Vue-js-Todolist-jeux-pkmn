@@ -1,6 +1,6 @@
 <template>
  <div id="road">
-   <img alt="Vue logo" src="../assets/road.png">
+   <img :src="require(`@/assets/${this.data.localisation[this.data.actual_localisation].name}.png`)">
   <h1>Route</h1>
   <h2>Un pokémon sauvage vous attaque !</h2>
   <p>{{this.data.foePkmn}}</p>

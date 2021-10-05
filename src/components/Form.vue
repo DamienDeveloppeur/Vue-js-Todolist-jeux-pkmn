@@ -2,6 +2,8 @@
  <div id="form">
    <img alt="Vue logo" src="../assets/prof-chen.png">
   <h1>Bienvenue dans le monde des pokémons !</h1>
+  <p>Dans cete run, vous aurez une stat de faim qui baissera au fur et à mesure de votre aventure</p>
+  <p>Vous devriez combatre pour gagner des pokédollar, pour pouvoir acheter de la nouriture</p>
   <p></p>
     <form id="form_name" @submit="checkForm">
         <p>
@@ -14,7 +16,6 @@
     </form>
  </div>
 </template>
-
 <script>
 export default {
     name: "Form",
@@ -26,9 +27,8 @@ export default {
     props : {data : Object},
     methods:{
       checkForm: function (e) {
-        // console.log(this.data)
-        this.data.name_dresseur = this.name;
-
+        this.data.trainer.name_trainer = this.name;
+        console.log(this.data.trainer.name_trainer)
         e.preventDefault();
       }
     }
