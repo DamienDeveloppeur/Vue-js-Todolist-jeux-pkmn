@@ -95,9 +95,13 @@ export default {
   methods : {
     attacks : function (a) {
       if(this.data.turn && this.team[0].status) {
-        console.log(a.target)
-        console.log(a.target)
-        this.data.foePkmn.current_stat.pv -= a.damage;
+        if(a.target == "pv") {
+          let additionnalDamage = this.team[0].current_stat.atk - this.data.foePkmn.current_stat.def 
+          if (additionnalDamage <= 0) this.data.foePkmn.current_stat.pv--;
+          else this.data.foePkmn.current_stat.pv -= a.damage + additionnalDamage;
+        } 
+        else this.data.foePkmn.current_stat.def -= a.damage;
+        
         if(this.data.foePkmn.current_stat.pv <= 0){
           this.data.foePkmn.status = false; 
           this.data.turn = true;

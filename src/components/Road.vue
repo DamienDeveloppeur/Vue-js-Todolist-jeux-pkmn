@@ -23,7 +23,8 @@
         </div>
     </div>
     <h3>Vous devez vaincre le pkmn sauvage pour pouvoir continuer</h3>
-  <h3>{{data.turn ? "Votre tour" : "Tour de du pokémon sauvage"}}</h3> 
+  <h3 v-if="data.foePkmn.status">{{data.turn ? "Votre tour" : "Tour de du pokémon sauvage"}}</h3> 
+  <h3 v-if="!data.foePkmn.status">Bravo, vous avez vaincu ce {{data.foePkmn.name}} sauvage </h3>
  </div>
 </template>
 
@@ -48,8 +49,8 @@ export default {
                                     ability : [
                                         {name: "griffe", damage : 5, target : "pv", type : "degat"}
                                     ], 
-                                    base_stat : {pv : 50, atk : 5, def:5}, 
-                                    current_stat : {pv : 50, atk : 5, def:5},
+                                    base_stat : {pv : 40, atk : 5, def:4}, 
+                                    current_stat : {pv : 40, atk : 5, def:4},
                                     status : true
                             };
         

@@ -14,15 +14,14 @@
                             </div>
                         </div>
                         <div class="barre_exp">
-                            <div class="stat_exp" :style="{ width: pokemon.current_stat.exp * 2+ 'px' }">
+                            <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
                             </div>
                         </div>
                         <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
                     </div>
-                    <div class="stat">
+                    <div class="stat" v-if="data.foePkmn.status">
                         <li v-for="(attack, i) in pokemon.ability" :key="i">
                            <div @click="atk(attack)">{{attack.name}}</div> 
-                           
                         </li>
                     </div>
                 </div>
@@ -69,7 +68,7 @@ export default {
     pkmn : Array},
     methods : {
         displayStat: function () {
-            console.log(this.pkmn[0].ability)
+            // console.log(this.pkmn[0].ability)
         },
          atk : function (a) {
           this.$emit("attack",a);
@@ -93,7 +92,7 @@ export default {
         }
     },
     beforeMount(){
-        this.displayStat();
+        // this.displayStat();
     },
 }
 </script>
