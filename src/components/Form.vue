@@ -28,7 +28,6 @@ export default {
     methods:{
       checkForm: function (e) {
         this.data.trainer.name_trainer = this.name;
-        console.log(this.data.trainer.name_trainer)
         e.preventDefault();
       }
     }

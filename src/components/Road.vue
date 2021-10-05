@@ -42,12 +42,14 @@ export default {
         foePkmnAttak() {
             // select foe pkmn
             this.data.foePkmn = {
-                                    name: 'salaméche', 
+                                    name: 'miaous', 
                                     id: 3, 
                                     level : 1,
-                                    ability : [ {name: "charge", damage : 5}], 
-                                    base_stat : {pv : 50, atk : 5, def:6}, 
-                                    current_stat : {pv : 50, atk : 5, def:6},
+                                    ability : [
+                                        {name: "griffe", damage : 5, target : "pv", type : "degat"}
+                                    ], 
+                                    base_stat : {pv : 50, atk : 5, def:5}, 
+                                    current_stat : {pv : 50, atk : 5, def:5},
                                     status : true
                             };
         

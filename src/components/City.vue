@@ -41,8 +41,9 @@ export default {
         this.shop ? this.shop = false : this.shop = true;
       },
       buyProduct: function (p) {
-        this.data.trainer.bag.push(p)
+        
         if(this.data.trainer.pokedollar >= p.price) {
+          this.data.trainer.bag.push(p)
           this.data.trainer.pokedollar -= p.price;
           console.log(this.data.trainer.bag)
         }

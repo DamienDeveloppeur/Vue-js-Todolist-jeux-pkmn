@@ -27,7 +27,10 @@ export default {
             name: 'carapuce', 
             id: 1,
             level : 1,
-            ability : [ {name: "charge", damage : 5}],
+            ability : [ 
+              {name: "charge", damage : 5, target : "pv", type : "degat"},
+              {name : "gros-yeux", damage: 4,target : "def", type: "support"}
+              ],
             base_stat : {pv : 50, atk : 5, def:6},
             current_stat : {pv : 50, atk : 5, def:6,exp : 0,},
             status : true
@@ -36,7 +39,10 @@ export default {
             name: 'salaméche', 
             id: 3, 
             level : 1,
-            ability : [ {name: "charge", damage : 5}], 
+            ability : [
+              {name: "griffe", damage : 5, target : "pv", type : "degat"},
+              {name : "gros-yeux", damage: 5,target : "def", type: "support"}
+            ], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6,exp : 0},
             status : true
@@ -45,7 +51,10 @@ export default {
             name: 'bulbizarre', 
             id: 2, 
             level : 1,
-            ability : [ {name: "charge", damage : 5}], 
+            ability : [
+              {name: "charge", damage : 5, target : "pv", type : "degat"},
+              {name : "mimi-queue", damage: 5,target : "def", type: "support"}
+            ], 
             base_stat : {pv : 50, atk : 5, def:6}, 
             current_stat : {pv : 50, atk : 5, def:6,exp : 0},
             status : true
@@ -69,8 +78,8 @@ export default {
           pokedollar : 50,
         },
         product_shop : [
-          {name : "food", price : 25},
-          {name: "pokeball", price : 20}
+          {name : "food", price : 25, effect : "eat"},
+          {name: "pokeball", price : 20, effect : 'capture'}
         ],
         game_over : false,
         
@@ -86,15 +95,14 @@ export default {
   methods : {
     attacks : function (a) {
       if(this.data.turn && this.team[0].status) {
+        console.log(a.target)
+        console.log(a.target)
         this.data.foePkmn.current_stat.pv -= a.damage;
         if(this.data.foePkmn.current_stat.pv <= 0){
           this.data.foePkmn.status = false; 
           this.data.turn = true;
-          this.team[0].current_stat.exp += 25;
-          if(this.team[0].current_stat.exp >= 100) {
-            this.team[0].level +=1;
-            this.team[0].current_stat.exp = this.team[0].current_stat.exp - 100;
-          }
+          this.leveling();
+          this.data.trainer.pokedollar += 25;
           return;
         } 
         else this.data.turn = false;
@@ -103,19 +111,27 @@ export default {
         setInterval(() => {
           if (!this.data.turn && this.data.foePkmn.status) {
             this.team[0].current_stat.pv -= this.data.foePkmn.ability[0].damage;
-            if(this.team[0].current_stat.pv <= 0) this.team[0].status = false;
+            // if(this.team[0].current_stat.pv <= 0) this.team[0].status = false;
             this.data.turn = true;
           }
         }, 1000)
       }
-      // faire baisser les pv du defender en fonction de l'attaque de l'attacker 
     },
     startHungry: function (){
       setInterval(() => {
         this.data.trainer.stat_hungry--;
       },2000)
-    }
+    },
+    leveling : function (){
+        this.team[0].current_stat.exp += 25;
+        if(this.team[0].current_stat.exp >= 100) {
+          this.team[0].level +=1;
+          this.team[0].current_stat.exp = this.team[0].current_stat.exp - 100;
+        }
+    },
+    makeDamage : function () {
 
+    },
   },
   beforeMount(){
     this.startHungry();

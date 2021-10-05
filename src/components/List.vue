@@ -37,7 +37,13 @@
             </div>
             <div class="bag">
                 <div>Montant pokedollar : {{this.data.trainer.pokedollar}}</div>
-                <button>Voir le contenu du sac</button>
+                <button @click="displayBag">Voir le contenu du sac</button>
+                <div v-if="bag">
+                    <!-- v-for="(pokemon, i) in team" :key="i" -->
+                        <div v-for="(p,i) in this.data.trainer.bag" :key="i">
+                            <button @click="useProuct(p,i)">{{p.name}}</button>
+                        </div>
+                </div>
             </div>
             <div class="hungry">
                     <div class="barre_exp">
@@ -46,16 +52,18 @@
                         </div>
                     </div>
             </div>
-        
         </div>
-
-
     </div>
 </template>
 
 <script>
 export default {
     name: 'List', 
+    data : function() {
+      return {
+        bag: false,
+      }
+    },
     props : {data : Object,
     team : Array,
     pkmn : Array},
@@ -66,6 +74,23 @@ export default {
          atk : function (a) {
           this.$emit("attack",a);
         },
+        displayBag : function() {
+            this.bag ? this.bag = false : this.bag = true
+        },
+        useProuct : function (p,i) {
+            console.log(i)
+            switch (p.effect) {
+                case 'eat':
+                    this.data.trainer.stat_hungry = 100;
+                    this.data.trainer.bag.splice(i,1);
+                break;
+                case 'pokeball' :
+                break;
+                case 'potion' :
+                break;
+            }
+
+        }
     },
     beforeMount(){
         this.displayStat();
