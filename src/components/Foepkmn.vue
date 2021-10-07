@@ -1,17 +1,16 @@
 <template>
  <div id="foePkmn">
-  <h1>Route</h1>
     <div class="thumbnail-pkmn">
         <div class="entry">
             <div class="column">
                 <div><span>Nom : </span><span>{{this.data.foePkmn.name}}</span></div> 
-                <div><span>Niveaux : </span><span>{{this.data.foePkmn.level}}</span></div>  
-            </div>
-            <div class="test">
-                <div class="barre_exp">
-                    <div class="stat_hp" :style="{ width: this.data.foePkmn.current_stat.pv  * 200 / this.data.foePkmn.base_stat.pv + 'px' }">
+                <div><span>Niveaux : </span><span>{{this.data.foePkmn.level}}</span></div> 
+                <div class="center">
+                    <div class="barre_exp">
+                        <div class="stat_hp" :style="{ width: this.data.foePkmn.current_stat.pv  * 200 / this.data.foePkmn.base_stat.pv + 'px' }">
+                        </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -53,7 +52,8 @@ export default {
 </script>
 
 <style scoped>
-.capComba {
-    
+.center {
+    display: flex;
+    justify-content: center;
 }
 </style>

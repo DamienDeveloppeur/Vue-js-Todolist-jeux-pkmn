@@ -178,8 +178,8 @@ export default {
   display:flex;
 }
 #List {
-    border: 1px solid black;
-    border-radius:100px;
+    /* border: 1px solid black;
+    border-radius:100px; */
 }
 .stat {
     display: flex;

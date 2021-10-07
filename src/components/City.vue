@@ -1,6 +1,6 @@
 <template>
  <div id="city">
-  <img :src="require(`@/assets/${this.data.localisation[this.data.actual_localisation].name}.png`)">
+  <img class="city-road-img" :src="require(`@/assets/${this.data.localisation[this.data.actual_localisation].name}.png`)">
   <h1>Ville</h1>
   <h4>Vous pouvez soigner vos pokémon ou acheter des objets en boutiques</h4>
   <button class="btn btn-1" @click="fullHeal">Soigner vos pokémons au centre</button>
@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
-
+.city-road-img {
+  width: 350px;
+  height:350px;
+}
 
 </style>
