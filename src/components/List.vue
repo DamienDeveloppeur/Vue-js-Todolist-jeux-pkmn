@@ -1,144 +1,134 @@
 <template>
-    <div id="List">
-        <div>Recapitulatif</div>
-        <div class="recap_card">
-          <!-- flip-card-container -->
-          <div id="team_pkmn" class="flip-card-container" style="--hue: 220">
-              <div class="flip-card">
-                  <div class="card-front">
-                  <figure>
-                      <div class="img-bg"></div>
-                      <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
-                      <!-- <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake"> -->
-                      <figcaption>Sac à dos</figcaption>
-                  </figure>
-                  <ul>
-                      <li>Montant pokedollar : {{this.data.trainer.pokedollar}}</li>
-                      <li>Detail 2</li>
-                      <li>Detail 3</li>
-                      <li>Detail 4</li>
-                      <li>Detail 5</li>
-                  </ul>
-                  </div>
-
-                  <div class="card-back">
-                    <figure>
-                        <div class="img-bg"></div>
-                        <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
-                    </figure>
-                    <!-- v-for="(pokemon, i) in team" :key="i" -->
-                    <div>
-                      <div v-for="(p,i) in this.data.trainer.bag" :key="i">
-                        <button @click="useProuct(p,i)">{{p.name}}</button>
-                      </div>
+  <div id="List">
+      <div>Recapitulatif</div>
+      <div v-if="data.foePkmn.status">
+          <div class="thumbnail-pkmn" v-for="(pokemon, i) in team" :key="i">
+            <div class="entry">
+                <div class="column">
+                    <div><span>Nom : </span><span>{{pokemon.name}}</span></div> 
+                    <div><span>Niveaux : </span><span>{{pokemon.level}}</span></div>
+                </div>
+                <div class="stat">
+                    <div class="barre_exp">
+                        <div class="stat_hp" :style="{ width: pokemon.current_stat.pv  * 200 / pokemon.base_stat.pv + 'px' }">
+                        </div>
                     </div>
-                    
-                      <div class="design-container">
-                          <span class="design design--1"></span>
-                          <span class="design design--2"></span>
-                          <span class="design design--3"></span>
-                          <span class="design design--4"></span>
-                          <span class="design design--5"></span>
-                          <span class="design design--6"></span>
-                          <span class="design design--7"></span>
-                          <span class="design design--8"></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- /flip-card-container -->
-
-          <!-- flip-card-container -->
-          <div id="bag" class="flip-card-container" style="--hue: 220">
-              <div class="flip-card">
-                  <div class="card-front">
+                    <div class="barre_exp">
+                        <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
+                        </div>
+                    </div>
+                    <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
+                </div>
+                <div class="stat" v-if="data.foePkmn.status">
+                    <li v-for="(attack, i) in pokemon.ability" :key="i">
+                        <div @click="atk(attack)">{{attack.name}}</div> 
+                    </li>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="recap_card">
+        <!-- flip-card- BAG -->
+        <div id="team_pkmn" class="flip-card-container" style="--hue: 220">
+            <div class="flip-card">
+                <div class="card-front">
                   <figure>
                       <div class="img-bg"></div>
                       <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
                       <!-- <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake"> -->
-                      <figcaption>Brohm Lake</figcaption>
+                      <figcaption>Inventaire</figcaption>
                   </figure>
-
-                  <ul>
-                      <li>Detail 1</li>
-                      <li>Detail 2</li>
-                      <li>Detail 3</li>
-                      <li>Detail 4</li>
-                      <li>Detail 5</li>
+                  <ul style="font-size: 26px;">
+                      <li>Montant pokedollar : {{this.data.trainer.pokedollar}}</li>
+                      <li>Votre nom : {{data.trainer.name_trainer }}</li>
+                      <li>Votre localisation : {{this.data.localisation[this.data.actual_localisation].name}}</li>
                   </ul>
-                  </div>
-
-                  <div class="card-back">
+                </div>
+                <div class="card-back">
                   <figure>
                       <div class="img-bg"></div>
                       <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
                   </figure>
-
+                  <!-- v-for="(pokemon, i) in team" :key="i" -->
                   <div>
-                    <button>Book</button>
-                    <button>Book</button> 
-                  </div>
-
-                  <div class="design-container">
-                      <span class="design design--1"></span>
-                      <span class="design design--2"></span>
-                      <span class="design design--3"></span>
-                      <span class="design design--4"></span>
-                      <span class="design design--5"></span>
-                      <span class="design design--6"></span>
-                      <span class="design design--7"></span>
-                      <span class="design design--8"></span>
-                  </div>
-                  </div>
-
-              </div>
-          </div>
-          <!-- /flip-card-container -->
-        </div>
-       
-        <div>
-            <div class="thumbnail-pkmn" v-for="(pokemon, i) in team" :key="i">
-                <div class="entry">
-                    <div class="column">
-                        <div><span>Nom : </span> <span>{{pokemon.name}}</span></div> 
-                        <div><span>Niveaux : </span> <span>{{pokemon.level}}</span></div>
+                    <div v-for="(p,i) in this.data.trainer.bag" :key="i">
+                      <button @click="useProuct(p,i)">{{p.name}}</button>
                     </div>
-                    <div class="stat">
-                        <div class="barre_exp">
-                            <div class="stat_hp" :style="{ width: pokemon.current_stat.pv  * 200 / pokemon.base_stat.pv + 'px' }">
-                            </div>
-                        </div>
-                        <div class="barre_exp">
-                            <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
-                            </div>
-                        </div>
-                        <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
-                    </div>
-                    <div class="stat" v-if="data.foePkmn.status">
-                        <li v-for="(attack, i) in pokemon.ability" :key="i">
-                           <div @click="atk(attack)">{{attack.name}}</div> 
-                        </li>
+                  </div>
+                    <div class="design-container">
+                        <span class="design design--1"></span>
+                        <span class="design design--2"></span>
+                        <span class="design design--3"></span>
+                        <span class="design design--4"></span>
+                        <span class="design design--5"></span>
+                        <span class="design design--6"></span>
+                        <span class="design design--7"></span>
+                        <span class="design design--8"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="stat_dresseur">
-            <div class="localisation">
-                Votre localisation : {{this.data.localisation[this.data.actual_localisation].name}}
-            </div>
-            <div class="nom">
-                <div>Votre nom : {{data.trainer.name_trainer }}</div><br>
-            </div>
-        
-            <div class="hungry">
-                    <div class="barre_exp">
-                        <div class="stat_hungry" :style="{ width: data.trainer.stat_hungry * 2+ 'px' }">
+        <!-- /flip-card TEAM PKMN -->
 
+        <!-- flip-card TEAM PKMN -->
+        <div id="bag" class="flip-card-container" style="--hue: 220">
+            <div class="flip-card">
+                <div class="card-front">
+                  <figure>
+                      <div class="img-bg"></div>
+                      <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
+                      <!-- <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake"> -->
+                      <figcaption>Team pkmn</figcaption>
+                  </figure>
+                  <ul>
+                    <li v-for="(pokemon, i) in team" :key="i">
+                       <div>{{pokemon.name}} lvl : {{pokemon.level}}</div> 
+                           <div class="stat">
+                    <div class="barre_exp">
+                        <div class="stat_hp" :style="{ width: pokemon.current_stat.pv  * 200 / pokemon.base_stat.pv + 'px' }">
                         </div>
                     </div>
+                    <div class="barre_exp">
+                        <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
+                        </div>
+                    </div>
+                    <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
+                </div>
+                    <div></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-back">
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
+                </figure>
+                  <button>Book</button>
+            
+                <div class="design-container">
+                    <span class="design design--1"></span>
+                    <span class="design design--2"></span>
+                    <span class="design design--3"></span>
+                    <span class="design design--4"></span>
+                    <span class="design design--5"></span>
+                    <span class="design design--6"></span>
+                    <span class="design design--7"></span>
+                    <span class="design design--8"></span>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
+        <!-- /flip-card-container -->
+      </div>
+      <div class="stat_dresseur">
+          <div class="hungry">
+            <div class="barre_exp">
+                <div class="stat_hungry" :style="{ width: data.trainer.stat_hungry * 2+ 'px' }">
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -414,7 +404,7 @@ li {
   margin-top: 12px;
   padding-bottom: 12px;
 
-  font-size: 14px;
+  font-size: 26px;
   text-align: center;
 
   position: relative;

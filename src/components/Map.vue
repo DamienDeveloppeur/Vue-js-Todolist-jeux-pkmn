@@ -22,7 +22,7 @@ export default {
         moove (moove) {
             // this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1 ? console.log("yes") : console.log("no");
             if(moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1)this.data.actual_localisation++;
-            else if (!moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation - 1]) > -1) this.data.actual_localisation--;
+            else if(!moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation - 1]) > -1) this.data.actual_localisation--;
         }
     }
 }

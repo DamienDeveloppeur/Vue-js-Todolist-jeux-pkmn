@@ -101,8 +101,8 @@ export default {
           else this.data.foePkmn.current_stat.pv -= a.damage + additionnalDamage;
         } 
         else this.data.foePkmn.current_stat.def -= a.damage;
-        
         if(this.data.foePkmn.current_stat.pv <= 0){
+          this.data.foePkmn.current_stat.pv = 0;
           this.data.foePkmn.status = false; 
           this.data.turn = true;
           this.leveling();
@@ -133,9 +133,6 @@ export default {
           this.team[0].current_stat.exp = this.team[0].current_stat.exp - 100;
         }
     },
-    makeDamage : function () {
-
-    },
   },
   beforeMount(){
     this.startHungry();
@@ -150,7 +147,6 @@ export default {
   },
    
 }
-// console.log(this.items);
 </script>
 
 <style>
