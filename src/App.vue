@@ -4,7 +4,7 @@
     <Starter v-bind:data="data" :pkmn="pkmn" :team="team" v-if="!this.data.starter_name&&this.data.trainer.name_trainer"></Starter>
     <City v-if="this.data.localisation[this.data.actual_localisation].type === 'city'&&this.data.starter_name" v-bind:data="data" :team="team" ></City>
     <Road v-bind:data="data" :team="team" :pkmn="pkmn"  v-if="this.data.localisation[this.data.actual_localisation].type === 'road'&&this.data.starter_name"></Road>
-    <Map v-bind:data="data" v-if="this.data.starter_name"></Map>
+    <Map v-bind:data="data" v-if="this.data.starter_name" @foePkmnComming="foePkmnComming"></Map>
     <List v-bind:data="data" :team="team" :pkmn="pkmn" @attack="attacks" />
   </div>
 </template>
@@ -122,6 +122,21 @@ export default {
           }
         }, 1000)
       }
+    },
+    foePkmnComming : function (){
+      // select foe pkmn
+      this.data.foePkmn = {
+          name: 'miaous', 
+          id: 4, 
+          level : 1,
+          ability : [
+              {name: "griffe", damage : 5, target : "pv", type : "degat"}
+          ], 
+          base_stat : {pv : 40, atk : 3, def:4}, 
+          current_stat : {pv : 40, atk : 3, def:4},
+          status : true
+      };
+        
     },
     startHungry: function (){
       setInterval(() => {

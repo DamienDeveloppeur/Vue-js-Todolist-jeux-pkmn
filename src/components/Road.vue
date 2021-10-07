@@ -25,20 +25,8 @@ export default {
     pkmn : Array},
     methods:{
         foePkmnAttak() {
-            console.log("attack pkmn");
-            // select foe pkmn
-            this.data.foePkmn = {
-                name: 'miaous', 
-                id: 4, 
-                level : 1,
-                ability : [
-                    {name: "griffe", damage : 5, target : "pv", type : "degat"}
-                ], 
-                base_stat : {pv : 40, atk : 3, def:4}, 
-                current_stat : {pv : 40, atk : 3, def:4},
-                status : true
-            };
-        
+            // this.$emit("foePkmnComming");
+            // console.log("attack pkmn");
         },
     },
     components: {
