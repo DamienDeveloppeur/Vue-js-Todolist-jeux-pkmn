@@ -35,7 +35,7 @@
                   <figure>
                       <div class="img-bg"></div>
                       <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
-                      <!-- <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake"> -->
+                      <!-- <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake"> -->
                       <figcaption>Inventaire</figcaption>
                   </figure>
                   <ul style="font-size: 26px;">
@@ -47,7 +47,7 @@
                 <div class="card-back">
                   <figure>
                       <div class="img-bg"></div>
-                      <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
+                      <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
                   </figure>
                   <!-- v-for="(pokemon, i) in team" :key="i" -->
                   <div>
@@ -77,7 +77,7 @@
                   <figure>
                       <div class="img-bg"></div>
                       <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
-                      <!-- <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake"> -->
+                      <!-- <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake"> -->
                       <figcaption>Team pkmn</figcaption>
                   </figure>
                   <ul>
@@ -101,10 +101,8 @@
                 <div class="card-back">
                 <figure>
                     <div class="img-bg"></div>
-                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
+                    <img src="../assets/logo-pkmn.jpg" alt="Brohm Lake">
                 </figure>
-                  <button>Book</button>
-            
                 <div class="design-container">
                     <span class="design design--1"></span>
                     <span class="design design--2"></span>
