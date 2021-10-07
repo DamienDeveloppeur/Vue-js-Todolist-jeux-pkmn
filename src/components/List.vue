@@ -141,7 +141,7 @@ export default {
     },
     props : {data : Object,
     team : Array,
-    pkmn : Array},
+    pkmn : Array},                                                           
     methods : {
         displayStat: function () {
             // console.log(this.pkmn[0].ability)

@@ -21,7 +21,12 @@ export default {
     methods : {
         moove (moove) {
             // this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1 ? console.log("yes") : console.log("no");
-            if(moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1) this.data.actual_localisation++;
+            if(moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation + 1]) > -1){
+                this.data.actual_localisation++;
+                // if(this.data.localisation[this.data.actual_localisation].type =="road") {
+                // }
+                
+            }
             else if(!moove && this.data.localisation.indexOf(this.data.localisation[this.data.actual_localisation - 1]) > -1) this.data.actual_localisation--;
         }
     }

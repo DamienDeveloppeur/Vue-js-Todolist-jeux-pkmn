@@ -6,7 +6,6 @@
     <Road v-bind:data="data" :team="team" :pkmn="pkmn"  v-if="this.data.localisation[this.data.actual_localisation].type === 'road'&&this.data.starter_name"></Road>
     <Map v-bind:data="data" v-if="this.data.starter_name"></Map>
     <List v-bind:data="data" :team="team" :pkmn="pkmn" @attack="attacks" />
-  
   </div>
 </template>
 
