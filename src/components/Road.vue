@@ -24,17 +24,13 @@ export default {
     team : Array,
     pkmn : Array},
     methods:{
-        foePkmnAttak() {
-            // this.$emit("foePkmnComming");
-            // console.log("attack pkmn");
-        },
     },
     components: {
         Foepkmn
     },
-    beforeMount(){
-        this.foePkmnAttak()
-    },
+    // beforeMount(){
+    //     this.foePkmnAttak()
+    // },
 }
 </script>
 

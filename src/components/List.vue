@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="barre_exp">
-                        <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
+                        <div class="stat_exp" :style="{  width: pokemon.exp * 2+ 'px' }">
                         </div>
                     </div>
                     <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="barre_exp">
-                        <div class="stat_exp" :style="{  width: pokemon.current_stat.exp * 2+ 'px' }">
+                        <div class="stat_exp" :style="{  width: pokemon.exp * 2+ 'px' }">
                         </div>
                     </div>
                     <!-- <span>Pv : </span> <span>{{pokemon.pv}}</span> -->
@@ -160,6 +160,8 @@ export default {
                     this.data.trainer.bag.splice(i,1);
                 break;
                 case 'pokeball' :
+                  this.team.push(this.data.foePkmn);
+                  this.data.foePkmn.status = false;
                 break;
                 case 'potion' :
                 break;

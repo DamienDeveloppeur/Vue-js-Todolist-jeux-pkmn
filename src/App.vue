@@ -31,7 +31,8 @@ export default {
               {name : "gros-yeux", damage: 4,target : "def", type: "support"}
               ],
             base_stat : {pv : 50, atk : 5, def:6},
-            current_stat : {pv : 50, atk : 5, def:6,exp : 0,},
+            current_stat : {pv : 50, atk : 5, def:6},
+            exp : 0,
             status : true
           },
           {
@@ -43,7 +44,8 @@ export default {
               {name : "gros-yeux", damage: 5,target : "def", type: "support"}
             ], 
             base_stat : {pv : 50, atk : 5, def:6}, 
-            current_stat : {pv : 50, atk : 5, def:6,exp : 0},
+            current_stat : {pv : 50, atk : 5, def:6},
+            exp : 0,
             status : true
           },
           {
@@ -55,7 +57,8 @@ export default {
               {name : "mimi-queue", damage: 5,target : "def", type: "support"}
             ], 
             base_stat : {pv : 50, atk : 5, def:6}, 
-            current_stat : {pv : 50, atk : 5, def:6,exp : 0},
+            current_stat : {pv : 50, atk : 5, def:6},
+            exp : 0,
             status : true
           },
       ],
@@ -144,10 +147,15 @@ export default {
       },2000)
     },
     leveling : function (){
-        this.team[0].current_stat.exp += 25;
-        if(this.team[0].current_stat.exp >= 100) {
+        for (let i in this.team[0].base_stat) {
+          this.team[0].base_stat[i] += 2;
+          this.team[0].current_stat[i] += 2;
+        }
+        this.team[0].exp += 25;
+        if(this.team[0].exp >= 100) {
           this.team[0].level +=1;
-          this.team[0].current_stat.exp = this.team[0].current_stat.exp - 100;
+          this.team[0].exp = this.team[0].exp - 100;
+    
         }
     },
   },
