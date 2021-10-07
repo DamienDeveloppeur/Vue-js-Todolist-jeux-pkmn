@@ -1,6 +1,6 @@
 <template>
     <div id="List">
-        <div>Votre équipe</div>
+        <div>Recapitulatif</div>
         <div class="recap_card">
           <!-- flip-card-container -->
           <div id="team_pkmn" class="flip-card-container" style="--hue: 220">
@@ -13,7 +13,7 @@
                       <figcaption>Sac à dos</figcaption>
                   </figure>
                   <ul>
-                      <li>Detail 1</li>
+                      <li>Montant pokedollar : {{this.data.trainer.pokedollar}}</li>
                       <li>Detail 2</li>
                       <li>Detail 3</li>
                       <li>Detail 4</li>
@@ -22,24 +22,28 @@
                   </div>
 
                   <div class="card-back">
-                  <figure>
-                      <div class="img-bg"></div>
-                      <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
-                  </figure>
-
-                  <button>Book</button>
-                  <div class="design-container">
-                      <span class="design design--1"></span>
-                      <span class="design design--2"></span>
-                      <span class="design design--3"></span>
-                      <span class="design design--4"></span>
-                      <span class="design design--5"></span>
-                      <span class="design design--6"></span>
-                      <span class="design design--7"></span>
-                      <span class="design design--8"></span>
+                    <figure>
+                        <div class="img-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
+                    </figure>
+                    <!-- v-for="(pokemon, i) in team" :key="i" -->
+                    <div>
+                      <div v-for="(p,i) in this.data.trainer.bag" :key="i">
+                        <button @click="useProuct(p,i)">{{p.name}}</button>
+                      </div>
+                    </div>
+                    
+                      <div class="design-container">
+                          <span class="design design--1"></span>
+                          <span class="design design--2"></span>
+                          <span class="design design--3"></span>
+                          <span class="design design--4"></span>
+                          <span class="design design--5"></span>
+                          <span class="design design--6"></span>
+                          <span class="design design--7"></span>
+                          <span class="design design--8"></span>
+                      </div>
                   </div>
-                  </div>
-
               </div>
           </div>
           <!-- /flip-card-container -->
@@ -70,7 +74,10 @@
                       <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Brohm Lake">
                   </figure>
 
-                  <button>Book</button>
+                  <div>
+                    <button>Book</button>
+                    <button>Book</button> 
+                  </div>
 
                   <div class="design-container">
                       <span class="design design--1"></span>
@@ -122,16 +129,7 @@
             <div class="nom">
                 <div>Votre nom : {{data.trainer.name_trainer }}</div><br>
             </div>
-            <div class="bag">
-                <div>Montant pokedollar : {{this.data.trainer.pokedollar}}</div>
-                <button @click="displayBag">Voir le contenu du sac</button>
-                <div v-if="bag">
-                    <!-- v-for="(pokemon, i) in team" :key="i" -->
-                        <div v-for="(p,i) in this.data.trainer.bag" :key="i">
-                            <button @click="useProuct(p,i)">{{p.name}}</button>
-                        </div>
-                </div>
-            </div>
+        
             <div class="hungry">
                     <div class="barre_exp">
                         <div class="stat_hungry" :style="{ width: data.trainer.stat_hungry * 2+ 'px' }">
