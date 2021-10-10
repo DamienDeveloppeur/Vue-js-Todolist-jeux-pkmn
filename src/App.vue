@@ -6,9 +6,16 @@
     <Road v-bind:data="data" :team="team" :pkmn="pkmn"  v-if="this.data.localisation[this.data.actual_localisation].type === 'road'&&this.data.starter_name"></Road>
     <Map v-bind:data="data" v-if="this.data.starter_name" @foePkmnComming="foePkmnComming"></Map>
     <List v-bind:data="data" :team="team" :pkmn="pkmn" @attack="attacks" />
+    <!-- {{meteo}}
+    {{meteo.name}} -->
+      <h3>Météo</h3>
+            <p>Ville: {{ meteo.name }}</p>
+            <p>Humidité: {{ meteo.main.humidity }}%</p>
+            <p>Vent: {{ meteo.wind.speed }}m/s</p>
+
   </div>
 </template>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 import Form from './components/Form.vue'
 import List from './components/List.vue'
@@ -16,6 +23,7 @@ import Starter from './components/Starter.vue'
 import Map from './components/Map.vue'
 import City from './components/City.vue'
 import Road from './components/Road.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -92,7 +100,7 @@ export default {
       team : [
         
       ],
-      config : {
+      meteo : {
         
       },
     }
@@ -158,9 +166,27 @@ export default {
     
         }
     },
+    apiMeteo : function (){
+      // setTimeout(function(){
+
+
+      // }, 500);
+          // Make a request for a user with a given ID
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q=montpellier&appid=dced8c7e19301276fcf28e033a299134')
+      .then( (r) => {
+       this.meteo = r.data
+      })
+      .catch(function (error) {
+          console.log(error);
+      })
+      .then(function () {
+      });
+    }
   },
   beforeMount(){
     this.startHungry();
+    
+    this.apiMeteo();
   },
   components: {
     Form,
